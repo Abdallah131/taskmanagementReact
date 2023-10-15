@@ -1,38 +1,99 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Cairo&family=Cinzel&display=swap');
+* {
+    margin: 0;
+    padding: 0;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Container {
+    height: 100%;
+    font-family: Cairo;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Title {
+    text-align: center;
+    margin-top: 50px;
+    opacity: 0.8;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Header {
+    display: flex;
+    justify-content: space-between;
 }
-
-.App-link {
-  color: #61dafb;
+.Header h2 {
+    color: #0984E3;
+    font-size: 28px;
+    margin-left: 100px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Header button {
+    background-color: #0984E3;
+    border: none;
+    font-family: Cairo;
+    margin-right: 100px;
+    width: 166px;
+    height: 50px;
+    cursor: pointer;
+    color: white;
+    transition: 0.8s;
+    font-weight: 700;
+}
+.Header button:hover {
+    transform: scale(1.05);
+}
+.Task--Container {
+    display: flex;
+    margin-left: 100px;
+    margin-bottom: 40px;
+}
+.Hor--Bar {
+    width: 12px;
+    background-color: #0984E3;
+    height: 190px;
+}
+.Task--Elements {
+    width: 616px;
+    height: 190px;
+    background-color: rgba(217, 217, 217, 0.90);
+}
+.Task--Main {
+    display: flex;
+}
+.Task--Main p{
+    opacity: 0.8;
+    font-family: Cairo; 
+    font-size: 14px;
+    font-weight: 400;
+    width: 536px;
+    margin-left: 25px;
+    margin-top: 25px;
+}
+.Task--Main img {
+    width: 23px;
+    height: 100%;
+    margin-top: 25px;
+    margin-left: 20px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.Task--Lower {
+    display: flex;
+    justify-content: space-between;
+}
+.Task--Lower p {
+    opacity: 0.8;
+    font-family: Cairo;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 15px;
+    user-select: none;
+}
+.Task--Lower p:nth-child(1) {
+    margin-left: 25px; 
+}
+.Task--Lower p:nth-child(2) {
+    margin-right: 25px; 
+}
+.Main {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    width: 1680px;
+    margin-left: 100px;
+    height: 100px;
 }
