@@ -142,3 +142,22 @@
 .Form--Container button:hover {
     transform: scale(1.05);
 }
+.More--Container {
+    height: 100%;
+    background-color: rgba(217, 217, 217, 0.90);
+}
+.More--Container {
+    height: fit-content;
+    background-color: rgba(217, 217, 217, 0.90);
+    margin-right: -80px;
+}
+.More--Container p {
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    width: 100px;
+    transition: 0.8s;
+}
+.More--Container p:hover {
+    background-color: rgba(190, 190, 190, 1);
+}

@@ -14,5 +14,5 @@ app.post("/addTask",(req,res) => {
 })
 
 app.get("/taskList",(req,res) => {
-    res.json({"tasks" : ["task1","task2","task3"]})
+    res.json("task" = {Message : "lorem as apppps  p ps:pqdqsdp" , dueDate : "2023/30/30"})
 })
