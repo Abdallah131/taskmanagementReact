@@ -38,17 +38,17 @@
 }
 .Task--Container {
     display: flex;
+    height :fit-content;
     margin-left: 100px;
     margin-bottom: 40px;
 }
 .Hor--Bar {
     width: 12px;
     background-color: #0984E3;
-    height: 190px;
 }
 .Task--Elements {
     width: 616px;
-    height: 190px;
+    height: 100%;
     background-color: rgba(217, 217, 217, 0.90);
 }
 .Task--Main {
@@ -74,6 +74,7 @@
 .Task--Lower {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 .Task--Lower p {
     opacity: 0.8;

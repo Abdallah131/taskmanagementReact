@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import More from '../images/viewmoreicon.png'
 export default function Task(props) {
-    const [status , setStatus] = useState("On Going")
+    const [status , setStatus] = useState(props.tasksDetail.taskStatus)
     const [more,setMore] = useState(false)
 
+    useEffect(() => {
+        setStatus(props.tasksDetail.taskStatus);
+      }, [props.tasksDetail.Status]);
+      
     let backgroundStyle = {}
     let colorStyle = {}
     if(status === "On Going") {
@@ -30,16 +34,40 @@ export default function Task(props) {
     }
 
     function handleStatus () {
+        let newStatus;
+
         if(status === "On Going") {
             setStatus("Completed")
+            newStatus = "Completed";
         }
         if(status === "Completed") {
             setStatus("Cancelled")
+            newStatus = "Cancelled";
         }
         if(status === "Cancelled") {
             setStatus("On Going")
+            newStatus = "On Going";
         }
+
+        fetch("/updateStatus", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              taskId: props.tasksDetail.taskid,
+              newStatus,
+            }),
+          })
+            .then((response) => response.text())
+            .then((data) => {
+              console.log("Success");
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
     }
+
     function handleMore(){
         setMore(prevMore => !prevMore)
     }
@@ -49,17 +77,23 @@ export default function Task(props) {
     function onDeleteClick() {
         console.log("Delete Called");
     }
+
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toISOString().split('T')[0];
+      }
+
     return (
         <div className="Task--Container">
             <div className="Hor--Bar" style={backgroundStyle}></div>
             <div className="Task--Elements">
                 <div className="Task--Main">
-                    <p>Comfort reached gay perhaps chamber his six detract besides add. Moonlight newspaper up he it enjoyment agreeable depending. Timed voice share led his widen noisy young. On weddings believed laughing although material do exercise of. Up attempt offered ye civilly so sitting to. She new course get living within elinor joy. She her rapturous suffering.</p>
+                    <p>{props.tasksDetail.taskMessage}</p>
                     <img src={More} alt="blyat" onClick={handleMore}/>
                 </div>
                 <div className="Task--Lower">
                     <p onClick={handleStatus} style={{cursor:"pointer"}}>Status : <span style={colorStyle}>{status}</span></p>
-                    <p>Due date : 31/12/2023</p>
+                    <p>Due date: {formatDate(props.tasksDetail.taskDueDate)}</p>
                 </div>
             </div>
             <div className="More--Container" style={{ display: more ? "block" : "none" }}>
