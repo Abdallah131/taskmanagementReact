@@ -97,3 +97,48 @@
     margin-left: 100px;
     height: 100px;
 }
+.Form--Container{
+    height: 600px;
+    width: 600px;
+    position: absolute;
+    right: 35%;
+    box-shadow: 1px 6px 28px 0px rgba(0,0,0,0.3);
+    text-align: center;
+    border-radius: 40px;
+    z-index: 1;
+    background-color: white;
+}
+.Form--Container h1{ 
+    margin-top: 30px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+.Form--Container textarea{ 
+    width: 80%;
+    height: 250px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.Form--Container input{ 
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.Form--Container span{ 
+    font-weight: 700;
+}
+.Form--Container button {
+    background-color: #0984E3;
+    border: none;
+    font-family: Cairo;
+    margin-top: 10px;
+    width: 300px;
+    height: 60px;
+    cursor: pointer;
+    color: white;
+    transition: 0.8s;
+    font-weight: 700;
+    border-radius: 10px;
+}
+.Form--Container button:hover {
+    transform: scale(1.05);
+}
