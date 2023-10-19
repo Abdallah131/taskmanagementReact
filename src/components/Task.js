@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import More from '../images/viewmoreicon.png'
+
 export default function Task(props) {
     const [status , setStatus] = useState(props.tasksDetail.taskStatus)
     const [more,setMore] = useState(false)
@@ -71,17 +72,59 @@ export default function Task(props) {
     function handleMore(){
         setMore(prevMore => !prevMore)
     }
+
     function onEditClick() {
-        console.log("Edit Called");
+        fetch("/specTask", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                taskId: props.tasksDetail.taskid
+            })
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            props.onEditTask(data[0]);
+        })
+        .catch((err) => {
+            console.log("Error: ", err);
+        });
     }
+
     function onDeleteClick() {
-        console.log("Delete Called");
+        fetch("/deleteTask",{
+            method : "DELETE",
+            headers : {
+                "Content-Type" : "application/json"
+            },
+            body : JSON.stringify({
+                taskId: props.tasksDetail.taskid,
+            })
+        })
+        .then((res)=> res.text())
+        .then((data) => {
+            console.log("Success")
+            window.location.reload();
+        })
+        .catch((err) => {
+            console.log("Error :", err)
+        })
     }
 
     function formatDate(dateString) {
-        const date = new Date(dateString);
-        return date.toISOString().split('T')[0];
-      }
+        try {
+            const date = new Date(dateString);
+            if (isNaN(date.getTime())) {
+                return "Invalid Date";
+            }
+            return date.toISOString().split('T')[0];
+        } catch (error) {
+            console.error("Error formatting date:", error);
+            return "Invalid Date";
+        }
+    }
+    
 
     return (
         <div className="Task--Container">

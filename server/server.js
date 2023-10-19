@@ -27,7 +27,6 @@ app.listen(4000, () => {
 });
 
 app.post("/addTask",(req,res) => {
-    console.log(req.body)
     const message = req.body.message;
     const dueDate = req.body.dueDate;
   
@@ -81,3 +80,50 @@ app.post("/updateStatus", (req, res) => {
   });
 });
   
+app.delete("/deleteTask", (req, res) => {
+  
+  const taskId = req.body.taskId;
+
+  const sql = "DELETE from tasks WHERE taskid = ?";
+  db.query(sql, [taskId], (err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Error occurred while updating the task status.");
+    } else {
+      res.redirect("/");
+    }
+  });
+});
+
+app.post("/specTask", (req, res) => {
+  const taskId = req.body.taskId;
+
+  const sql = "SELECT * FROM tasks where taskid = ?";
+
+  db.query(sql,[taskId], (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Error occurred while fetching task.");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+app.post("/editTask", (req, res) => {
+  
+  const taskId = req.body.taskId;
+  const newMessage = req.body.message;
+  const newDueDate = req.body.dueDate;
+
+    const sql = "UPDATE tasks SET taskMessage = ?, taskDueDate = ? WHERE taskid = ?";
+    db.query(sql, [newMessage, newDueDate, taskId], (err, result) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send("Error occurred while updating the task.");
+      }else {
+        res.redirect("/");
+      }
+    });
+  
+});

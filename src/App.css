@@ -162,3 +162,9 @@
 .More--Container p:hover {
     background-color: rgba(190, 190, 190, 1);
 }
+.Form--Container p {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    cursor: pointer;
+}
