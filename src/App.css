@@ -1,38 +1,170 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Cairo&family=Cinzel&display=swap');
+* {
+    margin: 0;
+    padding: 0;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Container {
+    height: 100%;
+    font-family: Cairo;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Title {
+    text-align: center;
+    margin-top: 50px;
+    opacity: 0.8;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Header {
+    display: flex;
+    justify-content: space-between;
 }
-
-.App-link {
-  color: #61dafb;
+.Header h2 {
+    color: #0984E3;
+    font-size: 28px;
+    margin-left: 100px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Header button {
+    background-color: #0984E3;
+    border: none;
+    font-family: Cairo;
+    margin-right: 100px;
+    width: 166px;
+    height: 50px;
+    cursor: pointer;
+    color: white;
+    transition: 0.8s;
+    font-weight: 700;
+}
+.Header button:hover {
+    transform: scale(1.05);
+}
+.Task--Container {
+    display: flex;
+    height :fit-content;
+    margin-left: 100px;
+    margin-bottom: 40px;
+}
+.Hor--Bar {
+    width: 12px;
+    background-color: #0984E3;
+}
+.Task--Elements {
+    width: 616px;
+    height: 100%;
+    background-color: rgba(217, 217, 217, 0.90);
+}
+.Task--Main {
+    display: flex;
+}
+.Task--Main p{
+    opacity: 0.8;
+    font-family: Cairo; 
+    font-size: 14px;
+    font-weight: 400;
+    width: 536px;
+    margin-left: 25px;
+    margin-top: 25px;
+}
+.Task--Main img {
+    width: 23px;
+    height: 100%;
+    margin-top: 25px;
+    margin-left: 20px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.Task--Lower {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.Task--Lower p {
+    opacity: 0.8;
+    font-family: Cairo;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 15px;
+    user-select: none;
+}
+.Task--Lower p:nth-child(1) {
+    margin-left: 25px; 
+}
+.Task--Lower p:nth-child(2) {
+    margin-right: 25px; 
+}
+.Main {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    width: 1680px;
+    margin-left: 100px;
+    height: 100px;
+}
+.Form--Container{
+    height: 600px;
+    width: 600px;
+    position: absolute;
+    right: 35%;
+    box-shadow: 1px 6px 28px 0px rgba(0,0,0,0.3);
+    text-align: center;
+    border-radius: 40px;
+    z-index: 1;
+    background-color: white;
+}
+.Form--Container h1{ 
+    margin-top: 30px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+.Form--Container textarea{ 
+    width: 80%;
+    height: 250px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.Form--Container input{ 
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.Form--Container span{ 
+    font-weight: 700;
+}
+.Form--Container button {
+    background-color: #0984E3;
+    border: none;
+    font-family: Cairo;
+    margin-top: 10px;
+    width: 300px;
+    height: 60px;
+    cursor: pointer;
+    color: white;
+    transition: 0.8s;
+    font-weight: 700;
+    border-radius: 10px;
+}
+.Form--Container button:hover {
+    transform: scale(1.05);
+}
+.More--Container {
+    height: 100%;
+    background-color: rgba(217, 217, 217, 0.90);
+}
+.More--Container {
+    height: fit-content;
+    background-color: rgba(217, 217, 217, 0.90);
+    margin-right: -80px;
+}
+.More--Container p {
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    width: 100px;
+    transition: 0.8s;
+}
+.More--Container p:hover {
+    background-color: rgba(190, 190, 190, 1);
+}
+.Form--Container p {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    cursor: pointer;
 }
